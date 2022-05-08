@@ -1,20 +1,16 @@
-/***************1**************/
+/****************************1**********************/
 function valMinMax(arr){
+  
   if(arr.length > 0){
     let sumsByExcluding = [];
-   function sumByExcludingFunc(iToExclude,arr2){
-     let sum = 0;
-     for(let i = 0; i < arr2.length; i++){
-       if(i === iToExclude) {continue;}
-       sum += arr2[i];
-     }
- 
-     return sum;
-   }
-
    for(let j = 0; j < arr.length; j++){
-
-      sumsByExcluding.push(sumByExcludingFunc(j,arr));
+    let sum = 0;
+    let iToExclude = j;
+     for(let i = 0; i < arr.length; i++){
+       if(i === iToExclude) {continue;}
+       sum += arr[i];
+     } 
+     sumsByExcluding.push(sum);
    }
    sumsByExcluding.sort(function(a, b){return b - a});
    return sumsByExcluding[sumsByExcluding.length - 1]+ " " + sumsByExcluding[0];
